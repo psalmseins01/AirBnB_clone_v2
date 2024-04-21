@@ -22,14 +22,14 @@ class State(BaseModel, Base):
     @property
     def cities(self):
         var = models.storage.all()
-        lista = []
+        city_list = []
         result = []
         for key in var:
             city = key.replace('.', ' ')
             city = shlex.split(city)
             if (city[0] == 'City'):
-                lista.append(var[key])
-        for elem in lista:
+                city_list.append(var[key])
+        for elem in city_list:
             if (elem.state_id == self.id):
                 result.append(elem)
         return (result)
